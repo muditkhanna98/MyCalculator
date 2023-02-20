@@ -4,15 +4,337 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline50h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <TextView
+        android:id="@+id/resultView"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="21"
+        android:textAlignment="textEnd"
+        android:textColor="#2d4b58"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline50h"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/operationView"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="16+5"
+        android:textAlignment="textEnd"
+        android:textColor="#576759"
+        android:textSize="55dp"
+        app:layout_constraintBottom_toTopOf="@id/resultView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/firstRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/guideline50h">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline25v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline50v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline75v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <Button
+            android:id="@+id/mplus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#2d4b58"
+            android:text="M+"
+            app:layout_constraintEnd_toStartOf="@id/guideline25v"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/b_ac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#2d4b58"
+            android:text="AC"
+            app:layout_constraintEnd_toStartOf="@id/guideline25v"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mplus" />
+
+        <Button
+            android:id="@+id/m_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#2d4b58"
+            android:text="M-"
+            app:layout_constraintEnd_toStartOf="@id/guideline50v"
+            app:layout_constraintStart_toEndOf="@id/guideline25v"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/b_brackets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="()"
+            app:layout_constraintEnd_toStartOf="@id/guideline50v"
+            app:layout_constraintStart_toEndOf="@id/guideline25v"
+            app:layout_constraintTop_toBottomOf="@id/m_minus" />
+
+        <Button
+            android:id="@+id/mr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#2d4b58"
+            android:text="MR"
+            app:layout_constraintEnd_toStartOf="@id/guideline75v"
+            app:layout_constraintStart_toEndOf="@id/guideline50v"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/b_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="@string/percent"
+            app:layout_constraintEnd_toStartOf="@id/guideline75v"
+            app:layout_constraintStart_toEndOf="@id/guideline50v"
+            app:layout_constraintTop_toBottomOf="@id/mr" />
+
+        <Button
+            android:id="@+id/mc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#2d4b58"
+            android:text="MC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline75v"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/b_divide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="@string/division"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline75v"
+            app:layout_constraintTop_toBottomOf="@id/mc" />
+
+        <Button
+            android:id="@+id/seven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="7"
+            app:layout_constraintEnd_toStartOf="@id/guideline25v"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/b_ac" />
+
+        <Button
+            android:id="@+id/eight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="8"
+            app:layout_constraintEnd_toStartOf="@id/guideline50v"
+            app:layout_constraintStart_toEndOf="@id/guideline25v"
+            app:layout_constraintTop_toBottomOf="@id/b_brackets" />
+
+        <Button
+            android:id="@+id/nine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="9"
+            app:layout_constraintEnd_toStartOf="@id/guideline75v"
+            app:layout_constraintStart_toEndOf="@id/guideline50v"
+            app:layout_constraintTop_toBottomOf="@id/b_percentage" />
+
+        <Button
+            android:id="@+id/multiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="@string/multiplication"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline75v"
+            app:layout_constraintTop_toBottomOf="@id/b_divide" />
+
+        <Button
+            android:id="@+id/four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="4"
+            app:layout_constraintEnd_toStartOf="@id/guideline25v"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seven" />
+
+        <Button
+            android:id="@+id/five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="5"
+            app:layout_constraintEnd_toStartOf="@id/guideline50v"
+            app:layout_constraintStart_toEndOf="@id/guideline25v"
+            app:layout_constraintTop_toBottomOf="@id/eight" />
+
+        <Button
+            android:id="@+id/six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="6"
+            app:layout_constraintEnd_toStartOf="@id/guideline75v"
+            app:layout_constraintStart_toEndOf="@id/guideline50v"
+            app:layout_constraintTop_toBottomOf="@id/nine" />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="@string/subtraction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline75v"
+            app:layout_constraintTop_toBottomOf="@id/multiply" />
+
+        <Button
+            android:id="@+id/one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="1"
+            app:layout_constraintEnd_toStartOf="@id/guideline25v"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/four" />
+
+        <Button
+            android:id="@+id/two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="2"
+            app:layout_constraintEnd_toStartOf="@id/guideline50v"
+            app:layout_constraintStart_toEndOf="@id/guideline25v"
+            app:layout_constraintTop_toBottomOf="@id/five" />
+
+        <Button
+            android:id="@+id/three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="3"
+            app:layout_constraintEnd_toStartOf="@id/guideline75v"
+            app:layout_constraintStart_toEndOf="@id/guideline50v"
+            app:layout_constraintTop_toBottomOf="@id/six" />
+
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="@string/addition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline75v"
+            app:layout_constraintTop_toBottomOf="@id/minus" />
+
+        <Button
+            android:id="@+id/zero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline25v"
+            app:layout_constraintTop_toBottomOf="@id/one"/>
+
+
+        <Button
+            android:id="@+id/decimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="@string/decimal"
+            app:layout_constraintEnd_toStartOf="@id/guideline50v"
+            app:layout_constraintStart_toEndOf="@id/guideline25v"
+            app:layout_constraintTop_toBottomOf="@id/two" />
+
+        <Button
+            android:id="@+id/pi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#212622"
+            android:text="@string/pi"
+            app:layout_constraintStart_toEndOf="@id/guideline50v"
+            app:layout_constraintTop_toBottomOf="@id/three"
+            app:layout_constraintEnd_toStartOf="@id/guideline75v"/>
+
+        <Button
+            android:id="@+id/equalto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#3D4943"
+            android:text="="
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline75v"
+            app:layout_constraintTop_toBottomOf="@id/plus" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
